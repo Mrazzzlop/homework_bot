@@ -12,11 +12,6 @@ PRACTICUM_TOKEN = os.getenv('PRACTICUM_TOKEN')
 TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
 TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
 
-logging.basicConfig(
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    level=logging.INFO)
-
-
 RETRY_PERIOD = 600
 ENDPOINT = 'https://practicum.yandex.ru/api/user_api/homework_statuses/'
 HEADERS = {'Authorization': f'OAuth {PRACTICUM_TOKEN}'}
@@ -32,10 +27,7 @@ HOMEWORK_VERDICTS = {
 def check_tokens():
     """Checks the availability of variables."""
     ENV_VARS = [PRACTICUM_TOKEN, TELEGRAM_TOKEN, TELEGRAM_CHAT_ID]
-    if not all(ENV_VARS):
-        logging.critical('Absence of mandatory environment variables')
-    else:
-        return True
+    return all(ENV_VARS)
 
 
 def send_message(bot, message):
@@ -66,7 +58,6 @@ def get_api_answer(timestamp):
     except requests.exceptions.RequestException as e:
         logging.error(f'error during request: {e}')
         raise Exception('error during request')
-    print(response.json())
     return response.json()
 
 
@@ -106,10 +97,9 @@ def main():
         logging.critical('No tokens')
         exit()
     bot = telegram.Bot(token=TELEGRAM_TOKEN)
-    timestamp = int(time.time())
     while True:
         try:
-            response = get_api_answer(timestamp)
+            response = get_api_answer(timestamp=int(time.time()))
             check_response(response)
             homeworks = response['homeworks']
             if not homeworks:
@@ -128,3 +118,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+logging.basicConfig(
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    level=logging.INFO)
