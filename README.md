@@ -7,8 +7,9 @@
 
 ### Технологии:
 [![Python](https://img.shields.io/badge/-Python-464646?style=flat&logo=Python&logoColor=56C0C0&color=008080)](https://www.python.org/)
-[![python-dotenv](https://img.shields.io/badge/-python-dotenv-464646?style=flat&logo=Python&logoColor=56C0C0&color=008080)](https://www.python.org/)
-[![python-telegram-bot](https://img.shields.io/badge/-python-telegram-bot-464646?style=flat&logo=Python&logoColor=56C0C0&color=008080)](https://www.python.org/)
+[![python-telegram-bot](color=008080)](https://www.python.org/)
+- python-telegram-bot
+- python dotenv
 
 ### Как запустить проект:
 
