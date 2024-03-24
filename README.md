@@ -6,9 +6,9 @@
 ```
 
 ### Технологии:
-- Python 3.9
-- python-dotenv 0.19.0
-- python-telegram-bot 13.7
+[![Python](https://img.shields.io/badge/-Python-464646?style=flat&logo=Python&logoColor=56C0C0&color=008080)](https://www.python.org/)
+[![python-dotenv](https://img.shields.io/badge/-Python-464646?style=flat&logo=Python&logoColor=56C0C0&color=008080)](https://www.python.org/)
+[![python-telegram-bot](https://img.shields.io/badge/-Python-464646?style=flat&logo=Python&logoColor=56C0C0&color=008080)](https://www.python.org/)
 
 ### Как запустить проект:
 
